@@ -1,0 +1,15 @@
+.main-nav{
+    min-height: 70px;
+    padding-left: 40px;
+}
+
+.navbar-logo-text{
+    color: #000000;
+    font: 24px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.navbar-logo-text:hover{
+    color: #000000;
+}
