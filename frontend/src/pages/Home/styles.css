@@ -1,18 +1,21 @@
 .home-main-container {
   display: flex;
   justify-content: space-around;
-  padding: 20px;
+  padding: 17px 10px;
 }
 
 .home-banner-container {
   display: none;
 }
-
 .home-login-card {
   width: 100%;
 }
 
 @media (min-width: 576px) {
+  .home-main-container {
+    padding: 40px 50px 120px 50px;
+  }
+  
   .home-login-card {
     width: 480px;
   }
@@ -50,7 +53,7 @@
     margin-bottom: 50px;
   }
 
-  .home-banner-container svg{
-      width: 100%
+  .home-banner-container svg {
+    width: 100%;
   }
 }
