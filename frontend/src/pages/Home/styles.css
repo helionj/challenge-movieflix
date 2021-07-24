@@ -15,7 +15,7 @@
   .home-main-container {
     padding: 40px 50px 120px 50px;
   }
-  
+
   .home-login-card {
     width: 480px;
   }
@@ -56,4 +56,5 @@
   .home-banner-container svg {
     width: 100%;
   }
+  
 }

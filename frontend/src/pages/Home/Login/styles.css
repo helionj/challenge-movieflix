@@ -18,7 +18,8 @@
 }
 @media (min-width: 576px) {
   .login-card {
-    padding: 60px 40px 100px 40px;
+    padding: 60px 40px 168px 40px;
+    
   }
 
   .login-submit {
