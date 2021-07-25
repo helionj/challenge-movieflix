@@ -1,8 +1,14 @@
-import ButtonIcon from 'components/ButtonIcon';
+import axios from 'axios';
+import { BASE_URL } from 'util/requests';
 import ReviewCard from './ReviewCard';
 import './styles.css';
 
 const MovieDetails = () => {
+  axios.get(BASE_URL+"/movies/1")
+    .then(response => {
+      console.log(response.data)
+    });
+    
   return (
     <div className="movie-details-container">
         <h1>Tela detalhes do filme id: 1</h1>
