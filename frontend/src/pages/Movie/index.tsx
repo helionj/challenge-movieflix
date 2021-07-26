@@ -28,7 +28,7 @@ const Movies = () => {
 
       <div className="movie-list-container">
         {page?.content.map((item) => (
-          <Link key={item.id} to={`/movies/${item.id}`} className="link-movie">
+          <Link key={item.id} to={`/movies/${item.id}/reviews`} className="link-movie">
             {item.title}
           </Link>
         ))}
