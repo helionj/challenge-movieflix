@@ -1,5 +1,5 @@
 import { Genre } from './genre';
-export type Movie = () => {
+export type Movie = {
     id: number,
     title: string,
     subTitle: string,
