@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { Review } from 'types/review';
 import { hasAnyRoles } from 'util/auth';
 import { requestBackend } from 'util/requests';
+import EmptyCard from './EmptyCard';
 import ReviewCard from './ReviewCard';
 import './styles.css';
 type UrlParams = {
@@ -95,12 +96,19 @@ const MovieDetails = () => {
           </form>
         </div>
       )}
-
-      <div className="card-list-review base-card">
-        {reviews?.map((item) => (
-          <ReviewCard user={item.user.name} review={item.text} key={item.id} />
-        ))}
-      </div>
+      {reviews === undefined || reviews.length === 0 ? (
+        <EmptyCard />
+      ) : (
+        <div className="card-list-review base-card">
+          {reviews?.map((item) => (
+            <ReviewCard
+              user={item.user.name}
+              review={item.text}
+              key={item.id}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

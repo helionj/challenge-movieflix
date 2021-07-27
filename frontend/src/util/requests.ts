@@ -66,9 +66,10 @@ axios.interceptors.request.use(
       return response;
     },
     function (error) {
-      if (error.response.status === 401 || error.response.status === 403) {
+      if (error.response.status === 401 ) {
         history.push('/');
       }
+      
       return Promise.reject(error);
     }
   );
