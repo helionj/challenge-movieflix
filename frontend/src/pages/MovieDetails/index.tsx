@@ -1,5 +1,4 @@
 import { AxiosRequestConfig } from 'axios';
-import qs from 'qs';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
