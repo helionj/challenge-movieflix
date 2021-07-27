@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { Review } from 'types/review';
+import { hasAnyRoles } from 'util/auth';
 import { requestBackend } from 'util/requests';
 import ReviewCard from './ReviewCard';
 import './styles.css';
@@ -14,7 +15,6 @@ type UrlParams = {
 type FormData = {
   text: string;
 };
-
 
 const MovieDetails = () => {
   const {
@@ -68,30 +68,34 @@ const MovieDetails = () => {
   return (
     <div className="movie-details-container">
       <h1>Tela detalhes do filme id : {movieId}</h1>
-      <div className="form-movie-details base-card">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
-            <input
-              {...register('text', {
-                required: 'Campo obrigatório',
-              })}
-              type="text"
-              className="form-control base-input"
-              placeholder="Deixe aqui a sua avaliação"
-              name="text"
-            />
-            <div className="invalid-feedback d-block">
-              {errors.text?.message}
-            </div>
-          </div>
 
-          <div className="review-submit">
-            <button className="btn btn-primary">
-              <h5>Salvar avaliação</h5>
-            </button>
-          </div>
-        </form>
-      </div>
+      {hasAnyRoles(['ROLE_MEMBER']) && (
+        <div className="form-movie-details base-card">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-4">
+              <input
+                {...register('text', {
+                  required: 'Campo obrigatório',
+                })}
+                type="text"
+                className="form-control base-input"
+                placeholder="Deixe aqui a sua avaliação"
+                name="text"
+              />
+              <div className="invalid-feedback d-block">
+                {errors.text?.message}
+              </div>
+            </div>
+
+            <div className="review-submit">
+              <button className="btn btn-primary">
+                <h5>Salvar avaliação</h5>
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
+
       <div className="card-list-review base-card">
         {reviews?.map((item) => (
           <ReviewCard user={item.user.name} review={item.text} key={item.id} />
