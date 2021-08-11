@@ -1,2 +1,0 @@
-INDEX VERSION 1.131+/Users/mac/Documents/Projects/ws-bootcamp/movieflix/.metadata/.plugins/org.eclipse.jdt.core
-1455761242.index
